@@ -8,7 +8,7 @@ class Shoe_Packages_Plan(models.Model):
     plan_title = models.CharField(max_length=30,blank=True)
     plan_info = models.CharField(max_length=200,blank=True)
     plan_price = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(6)] , blank=True
+        validators=[MinValueValidator(5), MaxValueValidator(1000)] , blank=True
     )
     plan_icon = models.CharField(max_length=60,blank=True)
         
