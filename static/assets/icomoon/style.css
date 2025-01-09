@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?f5sunj');
+  src:  url('fonts/icomoon.eot?f5sunj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?f5sunj') format('truetype'),
+    url('fonts/icomoon.woff?f5sunj') format('woff'),
+    url('fonts/icomoon.svg?f5sunj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account-settings:before {
+  content: "\e900";
+}
+.icon-apple-pay-icon:before {
+  content: "\e901";
+}
+.icon-basic-plan:before {
+  content: "\e902";
+}
+.icon-discount-history-icon:before {
+  content: "\e903";
+}
+.icon-facebook-sketch-icon:before {
+  content: "\e904";
+}
+.icon-google-pay-icon:before {
+  content: "\e905";
+}
+.icon-instagram-icon:before {
+  content: "\e906";
+}
+.icon-instagram-icon-2:before {
+  content: "\e907";
+}
+.icon-linkedin-icon:before {
+  content: "\e908";
+}
+.icon-login-icon:before {
+  content: "\e909";
+}
+.icon-logout-icon:before {
+  content: "\e90a";
+}
+.icon-loyalty-history-icon:before {
+  content: "\e90b";
+}
+.icon-luxury-shoe-plan:before {
+  content: "\e90c";
+}
+.icon-mastercard-icon:before {
+  content: "\e90d";
+}
+.icon-my-orders-icon:before {
+  content: "\e90e";
+}
+.icon-packages-star-icon:before {
+  content: "\e90f";
+}
+.icon-payment-cards-icon:before {
+  content: "\e910";
+}
+.icon-place-new-order-icon:before {
+  content: "\e911";
+}
+.icon-premium-plan:before {
+  content: "\e912";
+}
+.icon-premium-shoe-plan:before {
+  content: "\e913";
+}
+.icon-snapchat-icon:before {
+  content: "\e914";
+}
+.icon-standard-plan:before {
+  content: "\e915";
+}
+.icon-standard-shoe-plan:before {
+  content: "\e916";
+}
+.icon-star-icon:before {
+  content: "\e917";
+}
+.icon-tiktok-icon:before {
+  content: "\e918";
+}
+.icon-twitter-icon:before {
+  content: "\e919";
+}
+.icon-visa-icon:before {
+  content: "\e91a";
+}

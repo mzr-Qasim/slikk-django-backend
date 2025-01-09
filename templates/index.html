@@ -1,0 +1,56 @@
+{% load static %}
+{% include 'header.html' %}
+        <main class="main-content">
+            <section class="packages-section">
+                <div class="container">
+                    <div class="packages-section-inner">
+                        <div class="package-section-title">
+                            {% for data in packages_section_data %}
+                            <h3>{{data.first_section_title}}</h3>
+                            <p>{{data.first_section_info}}</p>
+                            {% endfor %}
+                        </div><!-- /.package-section-title -->
+                        <div class="row">   
+                            {% for data in laundary_packages_data %}  
+                            <div class="col-lg-4">
+                                <div class="col-inner packages-col">
+                                    <i class="{{data.plan_icon}} packages-icon"></i>
+                                    <h3 class="package-name">{{data.plan_title}}</h3><!-- /.package-name -->
+                                    <p class="info">{{data.plan_info}}</p><!-- /.info -->
+                                    <h4 class="price">from ${{data.plan_price}}</h4><!-- /.price -->
+                                    <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
+                                </div><!-- /.col-inner -->
+                            </div><!-- /.col-lg-4 -->  
+                            {% endfor %}       
+                        </div><!-- /.row -->
+                    </div><!-- /.packages-section-inner -->
+                </div><!-- /.container-fluid -->
+            </section><!-- /.packages-section -->
+            <section class="shoe-packages-section">
+                <div class="container">
+                    <div class="packages-section-inner">
+                        <div class="package-section-title">
+                            {% for data in packages_section_data %}
+                            <h3>{{data.second_section_title}}</h3>
+                            <p>{{data.second_section_info}}</p>
+                            {% endfor %}
+                        </div><!-- /.package-section-title -->
+                        <div class="row">    
+                            {% for data in shoe_packages_data %} 
+                            <div class="col-lg-4">
+                                <div class="col-inner packages-col">
+                                    <i class="{{data.plan_icon}} packages-icon"></i>
+                                    <h3 class="package-name">{{data.plan_title}}</h3><!-- /.package-name -->
+                                    <p class="info">{{data.plan_info}}</p><!-- /.info -->
+                                    <h4 class="price">Price ${{data.plan_price}}</h4><!-- /.price -->
+                                    <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
+                                </div><!-- /.col-inner -->
+                            </div><!-- /.col-lg-4 -->
+                            {% endfor %}        
+                        </div><!-- /.row -->
+                    </div><!-- /.packages-section-inner -->
+                </div><!-- /.container-fluid -->
+            </section><!-- /.packages-section -->
+        </main><!-- /.main-content -->
+
+        {% include 'footer.html' %}

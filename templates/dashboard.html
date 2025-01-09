@@ -1,0 +1,128 @@
+{% load static %}
+{% include 'header.html' %}
+    <main class="main-content">
+      <div class="discount-strip">
+        <p>10% student discount on all services</p>
+      </div><!-- /.discount-strip -->
+      <section class="main-dashboard">
+        <div class="aside-section">
+          <div class="aside-tabs">
+            <aside>
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i
+                      class="icon-my-orders-icon"></i>
+                    <p>My Orders</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i
+                      class="icon-account-settings"></i>
+                    <p>Account Settings</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i
+                      class="icon-payment-cards-icon"></i>
+                    <p>Payment Card</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#tab-4"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i
+                      class="icon-discount-history-icon"></i>
+                    <p>Discount History</p>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#tab-5"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i
+                      class="icon-loyalty-history-icon"></i>
+                    <p>Loyalty History</p>
+                  </button>
+                </li>
+                <li>
+                  <a href="{% url 'logout-user' %}" class="logout-button nav-link"><i class="icon-logout-icon"></i>Logout</a>
+                </li>
+              </ul>
+            </aside>
+          </div><!-- /.aside-tabs -->
+          <div class="referral-code">
+            <p class="loyalty-points">LOYALTY POINTS 00</p>
+            <div class="ref-code">
+              <p>Referral Code</p>
+              <b>JohnDoe20</b>
+            </div><!-- /.ref-code -->
+
+          </div><!-- /.referral-code -->
+        </div><!-- /.aside-section -->
+        <div class="dashboard-content">
+          <div class="order-info">
+            <div class="name">
+              <p>Welcome</p>
+              {% if user.is_authenticated %}          
+              <b>{{user.username}}</b>
+              {% endif %}
+            </div><!-- /.name -->
+            <a href="{% url 'home' %}" class="new-order theme-button">Place new order?<span><i
+                  class="icon-place-new-order-icon"></i></span></a>
+          </div><!-- /.order-info -->
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active tab-1" id="pills-home" role="tabpanel"
+                aria-labelledby="pills-home-tab" tabindex="0">
+                <div class="content-info">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="col-content-inner">
+                        <div class="content">
+                          <b>01</b>
+                          <p>Live Orders</p>
+                        </div><!-- /.content -->
+                      </div><!-- /.col-content-inner -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-lg-4">
+                      <div class="col-content-inner">
+                        <div class="content">
+                          <b>05</b>
+                          <p>Completed Orders</p>
+                        </div><!-- /.content -->
+                      </div><!-- /.col-content-inner -->
+                    </div><!-- /.col-md-4 -->
+                    <div class="col-lg-4">
+                      <div class="col-content-inner">
+                        <div class="content">
+                          <b>02</b>
+                          <p>Cancelled Orders</p>
+                        </div><!-- /.content -->
+                      </div><!-- /.col-content-inner -->
+                    </div><!-- /.col-md-4 -->
+                  </div><!-- /.row -->
+                </div><!-- /.content-info -->
+              </div>
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                tabindex="0">
+                <p>def</p>
+              </div>
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                tabindex="0">
+                <p>ghi</p>
+              </div>
+              <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                <p>jkl</p>
+              </div>
+              <div class="tab-pane fade" id="tab-5" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                <p>mno</p>
+              </div>
+            </div>
+          </div><!-- /.dashboard-content -->
+        </div><!-- /.container -->
+
+      </section><!-- /.main-dashboard -->
+    </main><!-- /.main-content -->
+
+
+
+{% include 'footer.html' %}
