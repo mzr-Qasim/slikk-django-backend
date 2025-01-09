@@ -52,9 +52,11 @@
           </div><!-- /.aside-tabs -->
           <div class="referral-code">
             <p class="loyalty-points">LOYALTY POINTS 00</p>
-            <div class="ref-code">
+            <div class="ref-code">      
               <p>Referral Code</p>
-              <b>JohnDoe20</b>
+              {% if user.is_authenticated %}    
+              <b>{{user.username|default:""|cut:" "}}20</b>
+              {% endif %}
             </div><!-- /.ref-code -->
 
           </div><!-- /.referral-code -->

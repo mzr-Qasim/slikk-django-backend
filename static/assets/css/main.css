@@ -12120,6 +12120,7 @@ a {
   background-color: #000000;
   padding: 0.25rem 1rem;
   border-radius: 20px;
+  border: 0;
 }
 
 .order-now-theme-button {
