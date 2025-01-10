@@ -56,11 +56,13 @@ def dashboard(request):
 
 
 def Create_account(request): 
+    f_name = request.POST['first-name']
+    l_name = request.POST['last-name']
     user_name = request.POST['username']
     user_email = request.POST['email']
     user_password = request.POST['password']
 
-    if user_name == '' or user_email == '' or user_password == '':
+    if f_name == '' or l_name == '' or  user_name == '' or user_email == '' or user_password == '':
         messages.error(request, "Please fill all fields.")
         return redirect('sign-up')
 
@@ -71,7 +73,7 @@ def Create_account(request):
 
 
         
-    user = User.objects.create_user(username=user_name, email=user_email,  password=user_password)
+    user = User.objects.create_user(first_name=f_name, last_name=l_name, username=user_name, email=user_email,  password=user_password)
     return render(request, 'login.html')
 
 

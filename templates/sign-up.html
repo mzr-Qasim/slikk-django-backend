@@ -7,8 +7,16 @@
                 {% csrf_token %}
                 <h2 class="login-title">Sign Up</h2>
                 <div class="input-field login-field">
+                    <input type="first-name" name="first-name" id="first-name" required>
+                    <label>First Name</label>
+                </div>
+                <div class="input-field login-field">
+                    <input type="last-name" name="last-name" id="last-name" required>
+                    <label>Last Name</label>
+                </div>
+                <div class="input-field login-field">
                     <input type="username" name="username" id="username" required>
-                    <label>Full Name</label>
+                    <label>Username</label>
                 </div>
                 <div class="input-field login-field">
                     <input type="email" name="email" id="email" required>
