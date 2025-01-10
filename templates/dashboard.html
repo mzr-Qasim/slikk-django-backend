@@ -55,7 +55,7 @@
             <div class="ref-code">      
               <p>Referral Code</p>
               {% if user.is_authenticated %}    
-              <b>{{user.first_name|default:""|cut:" "}}20</b>
+              <b>{{referral_code}}</b>
               {% endif %}
             </div><!-- /.ref-code -->
 
@@ -106,17 +106,86 @@
               </div>
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
                 tabindex="0">
-                <p>def</p>
+                <div class="account-settings">
+                  <div class="row">
+                    <div class="col-xl-8">
+                      <div class="col-inner dashboard-content-inner">
+                        <strong>Contact Details</strong>
+                        <hr>
+                        <div class="contact-info-section">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="left-section">
+                                <label for="">FIRST NAME</label>
+                                <input type="text" disabled placeholder="{{user.first_name}}">
+                                <label for="">EMAIL ADDRESS</label>
+                                <input type="text" disabled placeholder="{{user.email}}">
+                                <label for="">REFERRAL CODE</label>
+                                <input type="text" disabled placeholder="{{referral_code}}">
+                              </div><!-- /.left-section -->
+                            </div><!-- /.col-lg-6 -->
+                            <div class="col-lg-6">
+                              <div class="right-section">
+                                <label for="">LAST NAME</label>
+                                <input type="text" disabled placeholder="{{user.last_name}}">
+                                <label for="">PHONE</label>
+                                <input type="text" disabled placeholder="print">
+                              </div><!-- /.right-section -->
+                            </div><!-- /.col-lg-6 -->
+                          </div><!-- /.row -->
+                        </div><!-- /.contact-info-section -->
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-8 -->
+                    <div class="col-xl-4">
+                      <div class="col-inner dashboard-content-inner">
+                        <strong>Change Password</strong>
+                        <hr>
+                        <label for="">NEW PASSWORD</label>
+                        <input type="password" id="exampleInputPassword1" placeholder="enter password">
+                        <label for="">CONFIRM NEW PASSWORD</label>
+                        <input type="password" id="exampleInputPassword1" placeholder="Re-enter your new password*">
+                        <div class="update-button">
+                          <button class="theme-button-large">Update</button>                 
+                        </div><!-- /.update-button -->
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-4 -->
+                  </div><!-- /.row -->
+                </div><!-- /.account-settings -->
               </div>
               <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
                 tabindex="0">
-                <p>ghi</p>
+                <div class="payment-cards dashboard-content-inner">
+                  <strong>My Payment Cards</strong>
+                  <hr>
+                  <div class="discount-codes-inner">
+                    <small>No Card Records Found <span><a href="#" class="add-card-button">Add Card</a></span></small>
+                  </div><!-- /.discount-codes-inner -->
+                </div><!-- /.payment-cards -->
               </div>
               <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                <p>jkl</p>
+                <div class="discount-codes dashboard-content-inner" >
+                  <strong>Used Discount Codes</strong>
+                  <hr>
+                  <div class="discount-codes-inner">
+                    <small>No Discount Codes Used</small>
+                  </div><!-- /.discount-codes-inner -->
+                </div><!-- /.discount-codes -->
               </div>
               <div class="tab-pane fade" id="tab-5" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                <p>mno</p>
+                <div class="discount-codes dashboard-content-inner" style="margin-bottom: 1rem;" >
+                  <strong>Loyalty Program gives 25% discount every 6th wash</strong>
+                  <hr>
+                  <div class="discount-codes-inner">
+                    <small>No Discount Codes Used</small>
+                  </div><!-- /.discount-codes-inner -->
+                </div><!-- /.discount-codes -->
+                <div class="discount-codes dashboard-content-inner" >
+                  <strong>Loyalty History</strong>
+                  <hr>
+                  <div class="discount-codes-inner">
+                    <small>No Loyalty Points</small>
+                  </div><!-- /.discount-codes-inner -->
+                </div><!-- /.discount-codes -->
               </div>
             </div>
           </div><!-- /.dashboard-content -->

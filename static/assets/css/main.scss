@@ -234,7 +234,31 @@
     }
 }
 
+.account-settings{
+    .col-inner{
+        height: 100%;
+        .update-button{
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            padding: 0 1rem;
+            width: 100%;
+            height: 2.5rem;
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+        }
+        strong{
+            display: block;
+        }
+    }
+    .contact-info-section{
+        display: flex;
+        justify-content: space-between;
+    }
 
+    }
 
 
 
@@ -264,6 +288,11 @@
 }
 
 
+.discount-codes-inner{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
 
 
 
@@ -723,7 +752,31 @@ form {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Orders Page
+
+
+
 @import './partials/mediaqueries';
+
+
 
 
 

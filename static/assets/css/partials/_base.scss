@@ -40,7 +40,20 @@ a{
     border: 0;
 }
 
+.theme-button-large{
+    color: $white-color;
+    background-color: $black-color;
+    padding: .5rem 2rem;
+    border-radius: 20px;
+    border: 0!important;
+}
 
+.full_name-dropdown{
+    &:hover{
+        background-color: transparent!important;
+    }
+
+}
 
 .order-now-theme-button{
     background-color: $primary-color;
@@ -58,4 +71,24 @@ a{
 
 .disabled{
     display: none!important;
+}
+
+
+
+
+.dashboard-content-inner{
+    background-color: $white-color;
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    strong{
+        font-weight: 500;
+        font-size: calc(1rem + .2vw);
+    }
+}
+
+
+
+.add-card-button{
+    color: $black-color;
+    font-weight: 600;
 }

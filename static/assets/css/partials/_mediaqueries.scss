@@ -7,6 +7,17 @@
 }
 
 
+@media (max-width: 1200px){
+    .account-settings{
+        .row [class^="col-"] {
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+
 @media (max-width: 991px){
 
 
@@ -26,6 +37,7 @@
             width: 100%;
         }
     }
+
 
     .footer-inner{
         .row [class^="col-"] {

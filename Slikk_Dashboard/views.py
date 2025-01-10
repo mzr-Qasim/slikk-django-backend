@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib.auth import authenticate ,login as user_login ,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+import random
+import string
 from django.shortcuts import render
 from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
@@ -46,7 +48,13 @@ def orders(request):
 
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    user = request.user  # Get the currently logged-in user
+
+    # Generate the referral code
+    referral_code = generate_referral_code(user)
+
+    # Pass the referral code to the template
+    return render(request, 'dashboard.html',  {'referral_code': referral_code})
 
 
 
@@ -105,3 +113,11 @@ def loginUser(request):
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
+
+def generate_referral_code(user):
+    # Generate a random 6-character string from uppercase letters and digits
+    random_string = ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
+    # Combine the first 3 characters of the username with the random string
+    referral_code = f"{user.username[:3].upper()}{random_string}"
+    return referral_code

@@ -50,6 +50,8 @@
                                 {{user.username}}
                                 </button>
                                 <ul class="dropdown-menu">
+                                  <li class="dropdown-item full_name-dropdown"><strong>{{user.first_name}} {{user.last_name}}</strong></li>
+                                  <li><hr class="dropdown-divider"></li>
                                   <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
                                 </ul>
                             </div>
