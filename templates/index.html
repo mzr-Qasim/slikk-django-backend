@@ -11,7 +11,8 @@
                             {% endfor %}
                         </div><!-- /.package-section-title -->
                         <div class="row">   
-                            {% for data in laundary_packages_data %}  
+                            {% for data in packages_plan_data %}  
+                            {% if data.category == 'laundary' %}
                             <div class="col-lg-4">
                                 <div class="col-inner packages-col">
                                     <i class="{{data.plan_icon}} packages-icon"></i>
@@ -20,7 +21,8 @@
                                     <h4 class="price">from ${{data.plan_price}}</h4><!-- /.price -->
                                     <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
                                 </div><!-- /.col-inner -->
-                            </div><!-- /.col-lg-4 -->  
+                            </div><!-- /.col-lg-4 --> 
+                            {% endif %} 
                             {% endfor %}       
                         </div><!-- /.row -->
                     </div><!-- /.packages-section-inner -->
@@ -36,7 +38,8 @@
                             {% endfor %}
                         </div><!-- /.package-section-title -->
                         <div class="row">    
-                            {% for data in shoe_packages_data %} 
+                            {% for data in packages_plan_data %} 
+                            {% if data.category == 'shoe' %}
                             <div class="col-lg-4">
                                 <div class="col-inner packages-col">
                                     <i class="{{data.plan_icon}} packages-icon"></i>
@@ -46,6 +49,7 @@
                                     <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
                                 </div><!-- /.col-inner -->
                             </div><!-- /.col-lg-4 -->
+                            {% endif %}
                             {% endfor %}        
                         </div><!-- /.row -->
                     </div><!-- /.packages-section-inner -->

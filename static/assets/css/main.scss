@@ -168,7 +168,7 @@
                 align-items: center;
                 background-color: $black-color;
                 color: $white-color;
-                padding: 2rem 0;
+                padding: 2rem;
                 border-radius: 10px;
 
                 p {
@@ -178,6 +178,8 @@
                 b {
                     font-size: calc(1rem + .2vw);
                     font-weight: 500;
+                    word-break: break-all;
+                    text-align: center;
                 }
             }
         }

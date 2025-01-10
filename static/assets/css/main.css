@@ -12271,7 +12271,7 @@ a {
   align-items: center;
   background-color: #000000;
   color: #ffffff;
-  padding: 2rem 0;
+  padding: 2rem;
   border-radius: 10px;
 }
 .main-dashboard .aside-section .referral-code .ref-code p {
@@ -12280,6 +12280,8 @@ a {
 .main-dashboard .aside-section .referral-code .ref-code b {
   font-size: calc(1rem + 0.2vw);
   font-weight: 500;
+  word-break: break-all;
+  text-align: center;
 }
 .main-dashboard .dashboard-content {
   background-color: #f7f9fe;

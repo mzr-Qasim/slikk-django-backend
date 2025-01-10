@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Packages_Plan',
-    'Shoe_Packages_Plan',
     'Packages_Section',
 ]
 

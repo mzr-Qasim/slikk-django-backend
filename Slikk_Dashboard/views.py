@@ -3,8 +3,7 @@ from django.contrib.auth import authenticate ,login as user_login ,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render
-from Packages_Plan.models import Laundary_Packages
-from Shoe_Packages_Plan.models import Shoe_Packages_Plan
+from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
 
 
@@ -21,13 +20,11 @@ from Packages_Section.models import Packages_Section
 
 
 def home(request):
-    laundary_packages = Laundary_Packages.objects.all()
-    shoe_packages = Shoe_Packages_Plan.objects.all()
+    packages_plan = Packages_Plan.objects.all()
     packages_section = Packages_Section.objects.all()
 
     Data ={
-        "laundary_packages_data" : laundary_packages,
-        "shoe_packages_data" : shoe_packages,
+        "packages_plan_data" : packages_plan,
         "packages_section_data" : packages_section,
     }
     return render(request, 'index.html', Data)
