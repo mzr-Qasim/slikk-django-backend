@@ -46,6 +46,10 @@ def orders(request):
     return render(request, 'orders.html')
 
 
+def checkout(request):
+    return render(request, 'checkout.html')
+
+
 
 def dashboard(request):
     user = request.user  # Get the currently logged-in user

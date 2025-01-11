@@ -26,9 +26,10 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('Create_account/', views.Create_account, name='Create_account'),
     path('login-user/', views.loginUser, name='login-user'),
-     path('logout-user/', views.logoutUser, name='logout-user'),
+    path('logout-user/', views.logoutUser, name='logout-user'),
     path('sign-up/', views.sign_up, name='sign-up'),
     path('orders/', views.orders, name='orders'),
+    path('checkout/', views.checkout, name='checkout'),
     path('dashboard/', views.dashboard, name='dashboard'),
 ]
 

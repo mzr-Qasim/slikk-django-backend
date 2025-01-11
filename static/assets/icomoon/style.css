@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f5sunj');
-  src:  url('fonts/icomoon.eot?f5sunj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f5sunj') format('truetype'),
-    url('fonts/icomoon.woff?f5sunj') format('woff'),
-    url('fonts/icomoon.svg?f5sunj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?gl46t');
+  src:  url('fonts/icomoon.eot?gl46t#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?gl46t') format('truetype'),
+    url('fonts/icomoon.woff?gl46t') format('woff'),
+    url('fonts/icomoon.svg?gl46t#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -28,81 +28,90 @@
 .icon-account-settings:before {
   content: "\e900";
 }
-.icon-apple-pay-icon:before {
+.icon-add-icon:before {
   content: "\e901";
 }
-.icon-basic-plan:before {
+.icon-apple-pay-icon:before {
   content: "\e902";
 }
-.icon-discount-history-icon:before {
+.icon-basic-plan:before {
   content: "\e903";
 }
-.icon-facebook-sketch-icon:before {
+.icon-close-icon:before {
   content: "\e904";
 }
-.icon-google-pay-icon:before {
+.icon-discount-history-icon:before {
   content: "\e905";
 }
-.icon-instagram-icon:before {
+.icon-facebook-sketch-icon:before {
   content: "\e906";
 }
-.icon-instagram-icon-2:before {
+.icon-google-pay-icon:before {
   content: "\e907";
 }
-.icon-linkedin-icon:before {
+.icon-instagram-icon:before {
   content: "\e908";
 }
-.icon-login-icon:before {
+.icon-instagram-icon-2:before {
   content: "\e909";
 }
-.icon-logout-icon:before {
+.icon-linkedin-icon:before {
   content: "\e90a";
 }
-.icon-loyalty-history-icon:before {
+.icon-login-icon:before {
   content: "\e90b";
 }
-.icon-luxury-shoe-plan:before {
+.icon-logout-icon:before {
   content: "\e90c";
 }
-.icon-mastercard-icon:before {
+.icon-loyalty-history-icon:before {
   content: "\e90d";
 }
-.icon-my-orders-icon:before {
+.icon-luxury-shoe-plan:before {
   content: "\e90e";
 }
-.icon-packages-star-icon:before {
+.icon-mastercard-icon:before {
   content: "\e90f";
 }
-.icon-payment-cards-icon:before {
+.icon-my-orders-icon:before {
   content: "\e910";
 }
-.icon-place-new-order-icon:before {
+.icon-packages-star-icon:before {
   content: "\e911";
 }
-.icon-premium-plan:before {
+.icon-payment-cards-icon:before {
   content: "\e912";
 }
-.icon-premium-shoe-plan:before {
+.icon-place-new-order-icon:before {
   content: "\e913";
 }
-.icon-snapchat-icon:before {
+.icon-premium-plan:before {
   content: "\e914";
 }
-.icon-standard-plan:before {
+.icon-premium-shoe-plan:before {
   content: "\e915";
 }
-.icon-standard-shoe-plan:before {
+.icon-remove-icon:before {
   content: "\e916";
 }
-.icon-star-icon:before {
+.icon-snapchat-icon:before {
   content: "\e917";
 }
-.icon-tiktok-icon:before {
+.icon-standard-plan:before {
   content: "\e918";
 }
-.icon-twitter-icon:before {
+.icon-standard-shoe-plan:before {
   content: "\e919";
 }
-.icon-visa-icon:before {
+.icon-star-icon:before {
   content: "\e91a";
+}
+.icon-tiktok-icon:before {
+  content: "\e91b";
+}
+.icon-twitter-icon:before {
+  content: "\e91c";
+}
+.icon-visa-icon:before {
+  content: "\e91d";
 }

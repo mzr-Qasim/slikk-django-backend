@@ -5,6 +5,7 @@ $tertiary-color: #ebebeb;
 $text-color: #696969;
 $black-color: #000000;
 $white-color: #ffffff;
+$red-color: #FF0000;
 $dashboard-width: 250px;
 
 
@@ -92,3 +93,50 @@ a{
     color: $black-color;
     font-weight: 600;
 }
+
+
+
+.quantity-buttons{
+    background-color: $black-color;
+    color: $white-color;
+    border: 1px solid $black-color;
+}
+
+.cancel-order{
+    background-color: $red-color;
+    color: $white-color;
+    border: 1px solid $red-color;
+}
+
+
+.orders-page-button {
+    color: $black-color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover {
+        color: $white-color;
+        background-color: $black-color;
+        border-color: $black-color;
+    
+      }
+  }
+
+
+.secondary-background-color{
+    background-color: $secondary-color!important;
+}
+
+.tertiary-background-color{
+    background-color: $tertiary-color!important;
+}
+
+.primary-background-color{
+    background: $primary-color!important;
+}
+
+//   .orders-page-button :focus, .orders-page-button .focus {
+//     color: $white-color;
+//     background-color: $black-color;
+//     border-color: $black-color;
+//     box-shadow: 0 0 0 0.2rem rgba(183, 138, 135, 0.5);
+//   }
