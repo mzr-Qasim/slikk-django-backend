@@ -73,14 +73,18 @@ def Create_account(request):
     user_name = request.POST['username']
     user_email = request.POST['email']
     user_password = request.POST['password']
+    user_password_verfication = request.POST['password-verification']
 
-    if f_name == '' or l_name == '' or  user_name == '' or user_email == '' or user_password == '':
+    if f_name == '' or l_name == '' or  user_name == '' or user_email == '' or user_password == '' or user_password_verfication == '':
         messages.error(request, "Please fill all fields.")
+        return redirect('sign-up')
+    
+    if user_password != user_password_verfication:
+        messages.error(request, "Password didn't match")
         return redirect('sign-up')
 
     if len(user_password) != 8:
-        print("wrong")
-        # messages.error(request, "Password must be exactly 8 characters long.")
+        messages.error(request, "Password must be exactly 8 characters long.")
         return redirect('sign-up')
 
 
