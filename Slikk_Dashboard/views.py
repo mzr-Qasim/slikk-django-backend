@@ -82,9 +82,9 @@ def Create_account(request):
     if user_password != user_password_verfication:
         messages.error(request, "Password didn't match")
         return redirect('sign-up')
-
-    if len(user_password) != 8:
-        messages.error(request, "Password must be exactly 8 characters long.")
+    
+    if len(user_password) < 8:
+        messages.error(request, "Password must be at least 8 characters long.")
         return redirect('sign-up')
 
 
