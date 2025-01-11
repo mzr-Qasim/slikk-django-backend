@@ -19,7 +19,11 @@
                                     <h3 class="package-name">{{data.plan_title}}</h3><!-- /.package-name -->
                                     <p class="info">{{data.plan_info}}</p><!-- /.info -->
                                     <h4 class="price">from ${{data.plan_price}}</h4><!-- /.price -->
+                                    {% if user.is_authenticated %}
                                     <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}" class="order-now-theme-button">Order Now</a>
+                                    {% endif %}
                                 </div><!-- /.col-inner -->
                             </div><!-- /.col-lg-4 --> 
                             {% endif %} 
@@ -46,7 +50,11 @@
                                     <h3 class="package-name">{{data.plan_title}}</h3><!-- /.package-name -->
                                     <p class="info">{{data.plan_info}}</p><!-- /.info -->
                                     <h4 class="price">Price ${{data.plan_price}}</h4><!-- /.price -->
+                                    {% if user.is_authenticated %}
                                     <a href="{% url 'orders' %}" class="order-now-theme-button">Order Now</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}" class="order-now-theme-button">Order Now</a>
+                                    {% endif %}
                                 </div><!-- /.col-inner -->
                             </div><!-- /.col-lg-4 -->
                             {% endif %}
