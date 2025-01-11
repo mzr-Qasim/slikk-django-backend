@@ -97,15 +97,21 @@ a{
 
 
 .quantity-buttons{
-    background-color: $black-color;
-    color: $white-color;
-    border: 1px solid $black-color;
+    background-color: $tertiary-color;
+    color: $black-color;
+    border: 1px solid $tertiary-color;
+    &:hover{
+        background-color: $black-color;
+    }
 }
 
 .cancel-order{
     background-color: $red-color;
     color: $white-color;
     border: 1px solid $red-color;
+    &:hover{
+        background-color: $black-color;
+    }
 }
 
 
@@ -147,10 +153,11 @@ a{
 .input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
     position: relative;
     flex: 1 1 auto;
-    width: 1%;
+    width: 1%!important;
     min-width: 0;
     margin-bottom: 0;
 }
+
 
 .form-control {
     display: block;
