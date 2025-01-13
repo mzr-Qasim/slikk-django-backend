@@ -106,9 +106,9 @@ a{
 }
 
 .cancel-order{
-    background-color: $red-color;
-    color: $white-color;
-    border: 1px solid $red-color;
+    background-color: $tertiary-color;
+    color: $red-color;
+    border: 1px solid $tertiary-color;
     &:hover{
         background-color: $black-color;
     }
@@ -122,7 +122,7 @@ a{
     &:hover {
         color: $white-color;
         background-color: $black-color;
-        border-color: $black-color;
+        border-color: transparent!important;
     
       }
   }
@@ -194,6 +194,9 @@ a{
     appearance: none;
 }
 
-.page-header-link{
-    // color:  hsl(114, 100%, 50%);;
-}
+.disabled-link {
+    pointer-events: none; /* Disable click */
+    cursor: not-allowed;  /* Change cursor to show it's not clickable */
+    background-color: #d3d3d3; /* Light grey background */
+    color: #a1a1a1; /* Dark grey text color */
+  }

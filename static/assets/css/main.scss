@@ -774,7 +774,19 @@ form {
 
 
 // Orders Page
+.clear-order{
+    margin-bottom: 3rem;
+    display: flex; 
+    justify-content: left;
+} 
+.package-plan-list{
+    .package_item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+}
 
 @import './partials/mediaqueries';
 

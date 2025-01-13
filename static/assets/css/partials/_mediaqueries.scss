@@ -56,10 +56,18 @@
     }
 
     // Pacakges_Page
+    .table-overflow{
+        overflow-x: auto;
+    }
     .package_item{
         flex-direction: column;
     }
+    .package-plan-list{
+        .package_item{
+            flex-direction: column;
+        }
 
+    }
    
 }
 

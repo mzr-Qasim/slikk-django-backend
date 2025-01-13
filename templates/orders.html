@@ -17,11 +17,18 @@
 
     <!-- Cart Start -->
     <div class="container pt-5">
-        <div class="row">
-            <div class="col-lg-8 table-responsive mb-5">
+        <div class="clear-order">
+            {% if request.session.cart|length == 0 %}
+            <a href="{% url 'home' %}" class="theme-button-large">Back To Home</a>
+            {% else %}
+            <a href="{% url 'cart_clear' %}" class="theme-button-large" >Clear Orders</a>
+            {% endif %}
+        </div><!-- /.clear-order -->
+        <div class="row">       
+            <div class="col-lg-8 table-overflow mb-5">
                 <div class="order-col-inner" style="height: 100%;">
                     <table class="table table-bordered text-center mb-5">
-                        <thead class="text-dark">
+                        <thead class="text-dark package-order-title">
                             <tr>
                                 <th>Packages</th>
                                 <th>Price</th>
@@ -32,10 +39,10 @@
                         </thead>
                         <tbody class="align-middle">
                             {% for id,package in request.session.cart.items %}
-                            <tr>
-                                <td class="d-flex justify-content-between align-items-center package_item"><img src="{{package.image}}" alt="" style="width: 70px;">{{package.name}}</td>
-                                <td class="">${{package.price}}</td>
-                                <td class="">
+                            <tr class="package-plan-list">
+                                <td class="package_item"><img src="{{package.image}}" alt="" style="width: 40px;">{{package.name}}</td>
+                                <td class="package_asset">${{package.price}}</td>
+                                <td class="package_asset">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
                                             <a href="{% url 'item_decrement' package.product_id %}" class="btn btn-sm btn-primary btn-minus quantity-buttons">
@@ -50,7 +57,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">{{package.price|multiply:package.quantity}}</td>
+                                <td class="align-middle">${{package.price|multiply:package.quantity}}</td>
                                 <td class="align-middle">
                                     <a href="{% url 'item_clear' id %}" class="btn btn-sm btn-primary cancel-order"><i class="icon-close-icon"></i></a>
                                 </td>
@@ -58,11 +65,6 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                    {% if request.session.cart|length == 0 %}
-                    <a href="{% url 'home' %}" class="theme-button-large">Back To Home</a>
-                    {% else %}
-                    <a href="{% url 'cart_clear' %}" class="theme-button-large">Clear Orders</a>
-                    {% endif %}
                 </div><!-- /.order-col-inner -->
             </div>
             <div class="col-lg-4 mb-5">
@@ -94,14 +96,18 @@
                                 <h5 class="font-weight-bold">Total</h5>
                                 <h5 class="font-weight-bold">$21.95</h5>
                             </div>
-                            <a href="{% url 'checkout' %}" class="btn btn-block my-3 py-3 orders-page-button ">Proceed To Checkout</a>
+                            {% if request.session.cart|length == 0 %}
+                            <a href="#" class="btn btn-block my-3 py-3 disabled-link">Proceed To Checkout</a>
+                            {% else %}
+                            <a href="{% url 'checkout' %}" class="btn btn-block my-3 py-3 orders-page-button">Proceed To Checkout</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div><!-- /.order-col-inner -->
             </div>
         </div>
-    </div>
-    
-</main><!-- /.main-content -->
-
+        </div>
+        
+        </main><!-- /.main-content -->
+        
 {% include 'footer.html' %}

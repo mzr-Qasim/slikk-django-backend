@@ -12188,9 +12188,9 @@ a {
 }
 
 .cancel-order {
-  background-color: #FF0000;
-  color: #ffffff;
-  border: 1px solid #FF0000;
+  background-color: #ebebeb;
+  color: #FF0000;
+  border: 1px solid #ebebeb;
 }
 .cancel-order:hover {
   background-color: #000000;
@@ -12204,7 +12204,7 @@ a {
 .orders-page-button:hover {
   color: #ffffff;
   background-color: #000000;
-  border-color: #000000;
+  border-color: transparent !important;
 }
 
 .secondary-background-color {
@@ -12262,6 +12262,13 @@ a {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.disabled-link {
+  pointer-events: none; /* Disable click */
+  cursor: not-allowed; /* Change cursor to show it's not clickable */
+  background-color: #d3d3d3; /* Light grey background */
+  color: #a1a1a1; /* Dark grey text color */
 }
 
 .site-logo {
@@ -12878,6 +12885,18 @@ form {
   font-size: calc(1.2rem + 0.2vw);
 }
 
+.clear-order {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: left;
+}
+
+.package-plan-list .package_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media (max-width: 1400px) {
   .dashboard-content {
     padding-right: 0 !important;
@@ -12912,7 +12931,13 @@ form {
   .copyright-inner .copyright-info {
     margin-bottom: 1rem;
   }
+  .table-overflow {
+    overflow-x: auto;
+  }
   .package_item {
+    flex-direction: column;
+  }
+  .package-plan-list .package_item {
     flex-direction: column;
   }
 }
