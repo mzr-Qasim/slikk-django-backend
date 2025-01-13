@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-lg-8 table-responsive mb-5">
                 <div class="order-col-inner" style="height: 100%;">
-                    <table class="table table-bordered text-center mb-0">
+                    <table class="table table-bordered text-center mb-5">
                         <thead class="text-dark">
                             <tr>
                                 <th>Packages</th>
@@ -37,27 +37,32 @@
                                 <td class="">${{package.price}}</td>
                                 <td class="">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
-                                        <div class="input-group-btn d-flex">
+                                        <div class="input-group-btn">
                                             <a href="{% url 'item_decrement' package.product_id %}" class="btn btn-sm btn-primary btn-minus quantity-buttons">
-                                                <i class="icon-remove-icon"></i>
+                                                <i class="icon-remove-icon" style="line-height: 1.7rem;"></i>
                                             </a>
                                         </div>
                                         <input type="text" class="form-control form-control-sm text-center" value="1" style="width: 2.2rem!important;">
-                                        <div class="input-group-btn d-flex">
+                                        <div class="input-group-btn">
                                             <a href="{% url 'item_increment' package.product_id %}" class="btn btn-sm btn-primary btn-plus quantity-buttons">
-                                                <i class="icon-add-icon"></i>
+                                                <i class="icon-add-icon" style="line-height: 1.7rem;"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="align-middle">{{package.price|multiply:package.quantity}}</td>
                                 <td class="align-middle">
-                                    <a href="" class="btn btn-sm btn-primary cancel-order"><i class="icon-close-icon"></i></a>
+                                    <a href="{% url 'cart_clear' %}" class="btn btn-sm btn-primary cancel-order"><i class="icon-close-icon"></i></a>
                                 </td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
+                    {% if request.session.cart|length == 0 %}
+                    <a href="{% url 'home' %}" class="theme-button-large">Back To Home</a>
+                    {% else %}
+                    <a href="{% url 'cart_clear' %}" class="theme-button-large">Clear Orders</a>
+                    {% endif %}
                 </div><!-- /.order-col-inner -->
             </div>
             <div class="col-lg-4 mb-5">

@@ -81,9 +81,7 @@
                     <div class="col-lg-4">
                       <div class="col-content-inner">
                         <div class="content">
-                            {% for key, package in request.session.cart.items %}
-                            <b>{{ package.quantity }}</b>
-                            {% endfor %}
+                            <b>{{request.session.cart|length}}</b>
                           <p>Live Orders</p>
                         </div><!-- /.content -->
                       </div><!-- /.col-content-inner -->
