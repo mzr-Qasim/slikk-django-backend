@@ -12912,6 +12912,9 @@ form {
   .copyright-inner .copyright-info {
     margin-bottom: 1rem;
   }
+  .package_item {
+    flex-direction: column;
+  }
 }
 @media (max-width: 767px) {
   .packages-section .package-section-title::before {
