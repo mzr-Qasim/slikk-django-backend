@@ -7,6 +7,8 @@ import string
 from django.shortcuts import render
 from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
+from django.contrib.auth.decorators import login_required
+from cart.cart import Cart
 
 
 
@@ -33,29 +35,58 @@ def home(request):
 
 
 
+
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        pass
     return render(request, 'login.html')
 
 
 
 def sign_up(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        pass
     return render(request, 'sign-up.html')
 
 
 def orders(request):
-    return render(request, 'orders.html')
+    if request.user.is_authenticated:
+        pass
+    else:
+        return redirect('login')
+    
+    packages_plan = Packages_Plan.objects.all()
+
+    Data ={
+        "packages_plan_data" : packages_plan,
+    }
+    return render(request, 'orders.html',Data)
 
 
 def checkout(request):
+    if request.user.is_authenticated:
+        pass
+    else:
+        return redirect('login')
     return render(request, 'checkout.html')
 
 
 
 def dashboard(request):
+
+
     user = request.user  # Get the currently logged-in user
 
     # Generate the referral code
     referral_code = generate_referral_code(user)
+    if request.user.is_authenticated:
+        pass
+    else:
+        return redirect('login')
 
     # Pass the referral code to the template
     return render(request, 'dashboard.html',  {'referral_code': referral_code})
@@ -103,18 +134,18 @@ def loginUser(request):
     user_password = request.POST['password']
 
     if user_name == '' or user_password == ''  :
-        messages.error(request, "Please provide the email and password")
+        messages.error(request, "Please provide the username and password")
         return redirect('login')
+    
+
     user = authenticate(request, username=user_name, password=user_password)
-  
     if user is not None:
          user_login(request, user)
          request.session['username'] = user.username
          request.session['password'] = user.password
          return redirect('/')
     else:
-        print("User doesn't exist")
-        messages.error(request, "User does not exit")
+        messages.error(request, "User does not exist")
     return render(request, 'login.html')
 
 
@@ -129,3 +160,49 @@ def generate_referral_code(user):
     # Combine the first 3 characters of the username with the random string
     referral_code = f"{user.username[:3].upper()}{random_string}"
     return referral_code
+
+
+
+
+
+def cart_add(request, id):
+    cart = Cart(request)
+    product = Packages_Plan.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("orders")
+
+
+
+def item_clear(request, id):
+    cart = Cart(request)
+    product = Packages_Plan.objects.get(id=id)
+    cart.remove(product)
+    return redirect("orders")
+
+
+
+def item_increment(request, id):
+    cart = Cart(request)
+    product = Packages_Plan.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("orders")
+
+
+
+def item_decrement(request, id):
+    cart = Cart(request)
+    product = Packages_Plan.objects.get(id=id)
+    cart.decrement(product=product)
+    return redirect("orders")
+
+
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("orders")
+
+
+
+def cart_detail(request):
+    return render(request, 'orders.html')

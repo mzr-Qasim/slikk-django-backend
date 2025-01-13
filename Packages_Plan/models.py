@@ -5,10 +5,11 @@ from django.db import models
 
 class Packages_Plan(models.Model): 
     category = models.CharField(max_length=30,blank=True)
-    plan_title = models.CharField(max_length=30,blank=True)
+    name = models.CharField(max_length=30,blank=True)
     plan_info = models.CharField(max_length=200,blank=True)
-    plan_price= models.DecimalField(max_digits=6, decimal_places=2, blank=True)
-    plan_icon = models.CharField(max_length=60,blank=True)
+    price= models.DecimalField(max_digits=6, decimal_places=2, blank=True)
+    image = models.FileField(upload_to='Package_Plans/')
+    GST = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
 
 
     class Meta:

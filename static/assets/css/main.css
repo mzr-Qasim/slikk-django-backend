@@ -12778,9 +12778,11 @@ form {
   text-align: center;
   padding: 3rem 2rem;
 }
-.packages-section .packages-col i.packages-icon {
-  font-size: 7rem;
-  color: #696969;
+.packages-section .packages-col img.pacakages-img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .packages-section .packages-col h3.package-name, .packages-section .packages-col .package-name.h3 {
   margin-top: 2rem;
@@ -12852,9 +12854,11 @@ form {
   text-align: center;
   padding: 3rem 2rem;
 }
-.shoe-packages-section .packages-col i.packages-icon {
-  font-size: 7rem;
-  color: #696969;
+.shoe-packages-section .packages-col img.pacakages-img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .shoe-packages-section .packages-col h3.package-name, .shoe-packages-section .packages-col .package-name.h3 {
   margin-top: 2rem;

@@ -1,5 +1,6 @@
 {% load static %}
 {% include 'header.html' %}
+{% load cart_tag %}
     <main class="main-content">
       <div class="discount-strip">
         <p>10% student discount on all services</p>
@@ -80,7 +81,9 @@
                     <div class="col-lg-4">
                       <div class="col-content-inner">
                         <div class="content">
-                          <b>01</b>
+                            {% for key, package in request.session.cart.items %}
+                            <b>{{ package.quantity }}</b>
+                            {% endfor %}
                           <p>Live Orders</p>
                         </div><!-- /.content -->
                       </div><!-- /.col-content-inner -->

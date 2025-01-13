@@ -642,10 +642,12 @@ form {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         text-align: center;
         padding: 3rem 2rem;
-        i.packages-icon{
-            font-size: 7rem;
-            color: $text-color;
+        img.pacakages-img{
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
         }
+
         h3.package-name{
             margin-top: 2rem;
             font-weight: bold;
@@ -723,9 +725,10 @@ form {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         text-align: center;
         padding: 3rem 2rem;
-        i.packages-icon{
-            font-size: 7rem;
-            color: $text-color;
+        img.pacakages-img{
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
         }
         h3.package-name{
             margin-top: 2rem;
