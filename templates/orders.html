@@ -24,7 +24,12 @@
             <a href="{% url 'cart_clear' %}" class="theme-button-large" >Clear Orders</a>
             {% endif %}
         </div><!-- /.clear-order -->
-        <div class="row">       
+        <div class="row"> 
+            {% if request.session.cart|length == 0 %}   
+            <div class="col-lg-8 mb-5">
+                <h4>Looks like you haven’t placed any orders yet.</h4>
+            </div><!-- /.col-lg-8 --> 
+            {% else %}  
             <div class="col-lg-8 table-overflow mb-5">
                 <div class="order-col-inner" style="height: 100%;">
                     <table class="table table-bordered text-center mb-5">
@@ -80,6 +85,7 @@
                     </table>
                 </div><!-- /.order-col-inner -->
             </div>
+            {% endif %}
             <div class="col-lg-4 mb-5">
                 <div class="order-col-inner" style="height: 100%;">
                                                 <!-- <form class="mb-5" action="">
