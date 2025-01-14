@@ -12897,6 +12897,13 @@ form {
   justify-content: space-between;
 }
 
+.quantity-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
 @media (max-width: 1400px) {
   .dashboard-content {
     padding-right: 0 !important;
@@ -12931,9 +12938,6 @@ form {
   .copyright-inner .copyright-info {
     margin-bottom: 1rem;
   }
-  .table-overflow {
-    overflow-x: auto;
-  }
   .package_item {
     flex-direction: column;
   }
@@ -12960,5 +12964,8 @@ form {
 @media (max-width: 576px) {
   .site-logo {
     width: 120px;
+  }
+  .table-overflow {
+    overflow-x: auto;
   }
 }/*# sourceMappingURL=main.css.map */

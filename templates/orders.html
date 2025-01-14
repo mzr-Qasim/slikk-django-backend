@@ -43,21 +43,34 @@
                                 <td class="package_item"><img src="{{package.image}}" alt="" style="width: 40px;">{{package.name}}</td>
                                 <td class="package_asset">${{package.price}}</td>
                                 <td class="package_asset">
-                                    <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group quantity-input">
                                         <div class="input-group-btn">
+                                            {% if package.quantity == 1  %}
+                                            <a href="#" class="btn btn-sm btn-primary btn-minus quantity-buttons" style="pointer-events: none;">
+                                                <i class="icon-remove-icon" style="line-height: 1.7rem;"></i>
+                                            </a>
+                                            {% else %}
                                             <a href="{% url 'item_decrement' package.product_id %}" class="btn btn-sm btn-primary btn-minus quantity-buttons">
                                                 <i class="icon-remove-icon" style="line-height: 1.7rem;"></i>
                                             </a>
+                                            {% endif %}
                                         </div>
-                                        <input type="text" class="form-control form-control-sm text-center" value="1" style="width: 2.2rem!important;">
+                                        <small>{{package.quantity}}</small>
+                                        <!-- <input type="text" class="form-control form-control-sm text-center" value="" style="width: 2.2rem!important;"> -->
                                         <div class="input-group-btn">
+                                            {% if package.quantity == 9 %}
+                                            <a href="#" class="btn btn-sm btn-primary btn-plus quantity-buttons" style="pointer-events: none;">
+                                                <i class="icon-add-icon" style="line-height: 1.7rem;"></i>
+                                            </a>
+                                            {% else %}
                                             <a href="{% url 'item_increment' package.product_id %}" class="btn btn-sm btn-primary btn-plus quantity-buttons">
                                                 <i class="icon-add-icon" style="line-height: 1.7rem;"></i>
                                             </a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">${{package.price|multiply:package.quantity}}</td>
+                                <td class="align-middle">${{package.price|multiply:package.quantity|floatformat:2}}</td>
                                 <td class="align-middle">
                                     <a href="{% url 'item_clear' id %}" class="btn btn-sm btn-primary cancel-order"><i class="icon-close-icon"></i></a>
                                 </td>

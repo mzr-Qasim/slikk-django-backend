@@ -787,6 +787,12 @@ form {
     }
 
 }
+.quantity-input{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+} 
 
 @import './partials/mediaqueries';
 
