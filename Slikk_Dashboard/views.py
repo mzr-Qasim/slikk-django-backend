@@ -276,8 +276,12 @@ def create_checkout_session(request):
     cart= Cart(request)
     package_items= list(cart.session.values())[5]
     subtotal= 0
+    package_names = [] 
     for package in package_items:
         subtotal = subtotal + float(package_items[package]['price']) * int(package_items[package]['quantity'])
+        package_names.append(package_items[package]['name'])  # Get product name for each package
+    
+    package_name = package_names[0] 
     
 
     if request.method == "POST":
@@ -292,25 +296,25 @@ def create_checkout_session(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     try:
         checkout_session = stripe.checkout.Session.create(
-        line_items =[{
-            'price_data' :{
-              'currency' : 'usd',  
-              'unit_amount': int(Total*1000),
-              'product_data': {
-                  'Package': 'laundary premium',
+            line_items =[{
+                'price_data' :{
+                  'currency' : 'usd',  
+                  'unit_amount': int(Total*100),
+                  'product_data': {
+                      'name': package_name,
+                    },
                 },
-            },
-            'quantity' : 1
-        }],
-            mode='payment',
-            success_url='http://127.0.0.1:8000/success',
-            cancel_url= 'http://127.0.0.1:8000/cancel',
-        )
+                'quantity' : 1
+            }],
+                mode='payment',
+                success_url='http://127.0.0.1:8000/success',
+                cancel_url= 'http://127.0.0.1:8000/cancel',
+            )
         if checkout_session:
             order = Order.objects.create(user=request.user, total_price=Total, payment_id=checkout_session.id, payment_status= 'paid')
             if order:
                 for package in package_items:
-                    OrderPackages.objects.create(order=order, package_name=package_items[package]['name'],quantity=package_items[package],price=package_items['price'])
+                    OrderPackages.objects.create(order=order, package_name=package_items[package]['name'],quantity=package_items[package]['quantity'],price=package_items[package]['price'])
 
                     
 
@@ -322,8 +326,14 @@ def create_checkout_session(request):
 
 
 def success(request):
-    return render(request, 'success')
+    site_settings = Site_Settings.objects.all()
+
+
+    Data ={
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'success.html',Data)
 
 
 def cancel(request):
-    return render(request, 'cancel')
+    return render(request, 'cancel.html')

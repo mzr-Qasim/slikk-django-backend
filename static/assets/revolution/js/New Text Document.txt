@@ -1,0 +1,4 @@
+jquery.themepunch.enablelog 
+jquery.themepunch.revolution.min
+jquery.themepunch.tools.min
+tp-color-picker.min
