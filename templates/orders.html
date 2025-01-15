@@ -24,12 +24,13 @@
             <a href="{% url 'cart_clear' %}" class="theme-button-large" >Clear Orders</a>
             {% endif %}
         </div><!-- /.clear-order -->
-        <div class="row"> 
-            {% if request.session.cart|length == 0 %}   
+        {% if request.session.cart|length == 0 %}   
             <div class="col-lg-8 mb-5">
                 <h4>Looks like you haven’t placed any orders yet.</h4>
             </div><!-- /.col-lg-8 --> 
-            {% else %}  
+        {% else %}  
+        <div class="row"> 
+            
             <div class="col-lg-8 table-overflow mb-5">
                 <div class="order-col-inner" style="height: 100%;">
                     <table class="table table-bordered text-center mb-5">
@@ -85,10 +86,9 @@
                     </table>
                 </div><!-- /.order-col-inner -->
             </div>
-            {% endif %}
             <div class="col-lg-4 mb-5">
                 <div class="order-col-inner" style="height: 100%;">
-                                                <!-- <form class="mb-5" action="">
+                    <!-- <form class="mb-5" action="">
                         <div class="input-group input-group-orders">
                             <input type="text" class="form-control-orders  p-4" placeholder="Coupon Code">
                             <div class="input-group-append">
@@ -103,17 +103,17 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3 pt-1">
                                 <h6 class="font-weight-medium">Subtotal</h6>
-                                <h6 class="font-weight-medium">$11.95</h6>
+                                <h6 class="font-weight-medium">${{subtotal_value|floatformat:2}}</h6>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="font-weight-medium">GST</h6>
-                                <h6 class="font-weight-medium">$3.00</h6>
+                                <h6 class="font-weight-medium">${{gst_value|floatformat:2}}</h6>
                             </div>
                         </div>
                         <div class="card-footer border-secondary bg-transparent">
                             <div class="d-flex justify-content-between mt-2">
                                 <h5 class="font-weight-bold">Total</h5>
-                                <h5 class="font-weight-bold">$21.95</h5>
+                                <h5 class="font-weight-bold">${{total_value|floatformat:2}}</h5>
                             </div>
                             {% if request.session.cart|length == 0 %}
                             <a href="#" class="btn btn-block my-3 py-3 disabled-link">Proceed To Checkout</a>
@@ -125,6 +125,7 @@
                 </div><!-- /.order-col-inner -->
             </div>
         </div>
+        {% endif %}
         </div>
         
         </main><!-- /.main-content -->

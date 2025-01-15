@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib.auth import authenticate ,login as user_login ,logout
 from django.contrib.auth.models import User
+from User_Profiles.forms import User_Custom_Form
 from django.contrib import messages
 import random
 import string
 from django.shortcuts import render
+from Site_Logo.models import Site_Logo
 from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
 from django.contrib.auth.decorators import login_required
@@ -16,18 +18,13 @@ from cart.cart import Cart
 
 
 
-
-
-
-
-
-
-
 def home(request):
+    site_logo = Site_Logo.objects.all()
     packages_plan = Packages_Plan.objects.all()
     packages_section = Packages_Section.objects.all()
 
     Data ={
+        "site_logo_data": site_logo,
         "packages_plan_data" : packages_plan,
         "packages_section_data" : packages_section,
     }
@@ -41,7 +38,12 @@ def login(request):
         return redirect('home')
     else:
         pass
-    return render(request, 'login.html')
+    
+    site_logo = Site_Logo.objects.all()
+    Data ={
+        "site_logo_data": site_logo,
+    }
+    return render(request, 'login.html', Data)
 
 
 
@@ -50,7 +52,15 @@ def sign_up(request):
         return redirect('home')
     else:
         pass
-    return render(request, 'sign-up.html')
+    site_logo = Site_Logo.objects.all()
+    Data ={
+        "site_logo_data": site_logo,
+    }
+
+    return render(request, 'sign-up.html',Data)
+
+
+
 
 
 def orders(request):
@@ -60,10 +70,12 @@ def orders(request):
         return redirect('login')
     
     packages_plan = Packages_Plan.objects.all()
+    
 
     Data ={
         "packages_plan_data" : packages_plan,
     }
+
     return render(request, 'orders.html',Data)
 
 
@@ -72,7 +84,30 @@ def checkout(request):
         pass
     else:
         return redirect('login')
-    return render(request, 'checkout.html')
+    
+    site_logo = Site_Logo.objects.all()
+    cart= Cart(request)
+    package_items= list(cart.session.values())[5]
+    subtotal= 0
+    for package in package_items:
+        subtotal = subtotal + float(package_items[package]['price']) * int(package_items[package]['quantity'])
+    
+
+    if request.method == "POST":
+        form = User_Custom_Form(request.POST)
+    else:
+        form= User_Custom_Form()
+
+    gst = (subtotal*20/100)
+    Total = (gst+subtotal)
+    Data ={
+        "site_logo_data": site_logo,
+        "subtotal_value" : subtotal,
+        "gst_value": gst,
+        "total_value": Total,
+        "form": form,
+    }
+    return render(request, 'checkout.html',Data)
 
 
 
@@ -88,8 +123,13 @@ def dashboard(request):
     else:
         return redirect('login')
 
+    site_logo = Site_Logo.objects.all()
+    Data ={
+        "site_logo_data": site_logo,
+        "referral_code": referral_code,
+    }
     # Pass the referral code to the template
-    return render(request, 'dashboard.html',  {'referral_code': referral_code})
+    return render(request, 'dashboard.html',Data)
 
 
 
@@ -205,4 +245,19 @@ def cart_clear(request):
 
 
 def cart_detail(request):
-    return render(request, 'orders.html')
+    site_logo = Site_Logo.objects.all()
+    cart= Cart(request)
+    package_items= list(cart.session.values())[5]
+    subtotal= 0
+    for package in package_items:
+        subtotal = subtotal + float(package_items[package]['price']) * int(package_items[package]['quantity'])
+
+    gst = (subtotal*20/100)
+    Total = (gst+subtotal)
+    Data ={
+        "site_logo_data": site_logo,
+        "subtotal_value" : subtotal,
+        "gst_value": gst,
+        "total_value": Total,
+    }
+    return render(request, 'orders.html', Data)

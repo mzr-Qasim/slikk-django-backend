@@ -6,7 +6,9 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="col-inner">
-                            <img class="footer-logo site-logo" src="{% static 'assets/images/main-logo.svg' %}" alt="">
+                            {% for data in site_logo_data %}
+                            <img class="footer-logo site-logo" src="{{data.logo.url}}" alt="">
+                            {% endfor %}
                             <ul class="social-media-icons">
                                 <li><a href="#"><i class="icon-facebook-sketch-icon"></i></a></li>
                                 <li><a href="#"><i class="icon-twitter-icon"></i></a></li>
