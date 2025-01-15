@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 import os
+from decouple import config
+
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Packages_Plan',
     'Packages_Section',
-    'Site_Logo',
+    'Site_Settings',
     'User_Profiles',
     'cart',
 ]
@@ -156,3 +160,6 @@ CART_SESSION_ID = 'cart'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+

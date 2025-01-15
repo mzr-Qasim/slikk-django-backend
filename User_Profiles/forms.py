@@ -5,6 +5,9 @@ from django import forms
 
 class User_Custom_Form(UserCreationForm):
 
+
+
+
     phone= forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     address_1= forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     address_2= forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))

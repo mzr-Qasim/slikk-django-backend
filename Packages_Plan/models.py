@@ -10,7 +10,7 @@ class Packages_Plan(models.Model):
     plan_info = models.CharField(max_length=200,blank=True)
     price= models.DecimalField(max_digits=6, decimal_places=2, blank=True)
     image = models.FileField(upload_to='Package_Plans/')
-    GST = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+
 
 
     class Meta:

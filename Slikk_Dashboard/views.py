@@ -6,7 +6,7 @@ from django.contrib import messages
 import random
 import string
 from django.shortcuts import render
-from Site_Logo.models import Site_Logo
+from Site_Settings.models import Site_Settings
 from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
 from django.contrib.auth.decorators import login_required
@@ -19,12 +19,12 @@ from cart.cart import Cart
 
 
 def home(request):
-    site_logo = Site_Logo.objects.all()
+    site_settings = Site_Settings.objects.all()
     packages_plan = Packages_Plan.objects.all()
     packages_section = Packages_Section.objects.all()
 
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
         "packages_plan_data" : packages_plan,
         "packages_section_data" : packages_section,
     }
@@ -39,9 +39,9 @@ def login(request):
     else:
         pass
     
-    site_logo = Site_Logo.objects.all()
+    site_settings = Site_Settings.objects.all()
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
     }
     return render(request, 'login.html', Data)
 
@@ -52,9 +52,10 @@ def sign_up(request):
         return redirect('home')
     else:
         pass
-    site_logo = Site_Logo.objects.all()
+
+    site_settings = Site_Settings.objects.all()
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
     }
 
     return render(request, 'sign-up.html',Data)
@@ -85,7 +86,7 @@ def checkout(request):
     else:
         return redirect('login')
     
-    site_logo = Site_Logo.objects.all()
+    site_settings = Site_Settings.objects.all()
     cart= Cart(request)
     package_items= list(cart.session.values())[5]
     subtotal= 0
@@ -101,7 +102,7 @@ def checkout(request):
     gst = (subtotal*20/100)
     Total = (gst+subtotal)
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
         "subtotal_value" : subtotal,
         "gst_value": gst,
         "total_value": Total,
@@ -123,9 +124,9 @@ def dashboard(request):
     else:
         return redirect('login')
 
-    site_logo = Site_Logo.objects.all()
+    site_settings = Site_Settings.objects.all()
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
         "referral_code": referral_code,
     }
     # Pass the referral code to the template
@@ -245,7 +246,7 @@ def cart_clear(request):
 
 
 def cart_detail(request):
-    site_logo = Site_Logo.objects.all()
+    site_settings = Site_Settings.objects.all()
     cart= Cart(request)
     package_items= list(cart.session.values())[5]
     subtotal= 0
@@ -255,7 +256,7 @@ def cart_detail(request):
     gst = (subtotal*20/100)
     Total = (gst+subtotal)
     Data ={
-        "site_logo_data": site_logo,
+        "site_settings_data": site_settings,
         "subtotal_value" : subtotal,
         "gst_value": gst,
         "total_value": Total,
