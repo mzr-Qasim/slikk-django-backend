@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate ,login as user_login ,logout
 from django.contrib.auth.models import User
 from User_Profiles.forms import User_Custom_Form
 from django.contrib import messages
+from django.http import JsonResponse
 import random
 import string
 from django.shortcuts import render
@@ -294,23 +295,29 @@ def create_checkout_session(request):
         line_items =[{
             'price_data' :{
               'currency' : 'usd',  
-                'product_data': {
+              'unit_amount': int(Total*1000),
+              'product_data': {
                   'Package': 'laundary premium',
                 },
-              'unit_amount': Total
             },
             'quantity' : 1
         }],
             mode='payment',
-            success_url=settings.LOCAL_DOMAIN + '/success.html',
-            cancel_url= settings.LOCAL_DOMAIN + '/cancel.html',
+            success_url='http://127.0.0.1:8000/success',
+            cancel_url= 'http://127.0.0.1:8000/cancel',
         )
         if checkout_session:
-            Order.objects.create(user=request.user, total_price=Total, payment_id=checkout_session.id, payment_status= 'paid')
-    except Exception as e:
-        return str(e)
+            order = Order.objects.create(user=request.user, total_price=Total, payment_id=checkout_session.id, payment_status= 'paid')
+            if order:
+                for package in package_items:
+                    OrderPackages.objects.create(order=order, package_name=package_items[package]['name'],quantity=package_items[package],price=package_items['price'])
 
-    return redirect(checkout_session.url, code=303)
+                    
+
+        return redirect(checkout_session.url, code=303)
+    except Exception as e:
+         
+         return JsonResponse({'error': str(e)}, status=400)
 
 
 
