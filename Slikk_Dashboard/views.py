@@ -11,6 +11,9 @@ from Packages_Plan.models import Packages_Plan
 from Packages_Section.models import Packages_Section
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
+import stripe
+from django.conf import settings
+from Orders.models import Order, OrderPackages
 
 
 
@@ -96,6 +99,8 @@ def checkout(request):
 
     if request.method == "POST":
         form = User_Custom_Form(request.POST)
+        if form.is_valid():
+            form.save()
     else:
         form= User_Custom_Form()
 
@@ -262,3 +267,56 @@ def cart_detail(request):
         "total_value": Total,
     }
     return render(request, 'orders.html', Data)
+
+
+
+
+def create_checkout_session(request):
+    cart= Cart(request)
+    package_items= list(cart.session.values())[5]
+    subtotal= 0
+    for package in package_items:
+        subtotal = subtotal + float(package_items[package]['price']) * int(package_items[package]['quantity'])
+    
+
+    if request.method == "POST":
+        form = User_Custom_Form(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form= User_Custom_Form()
+
+    gst = (subtotal*20/100)
+    Total = (gst+subtotal)
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    try:
+        checkout_session = stripe.checkout.Session.create(
+        line_items =[{
+            'price_data' :{
+              'currency' : 'usd',  
+                'product_data': {
+                  'Package': 'laundary premium',
+                },
+              'unit_amount': Total
+            },
+            'quantity' : 1
+        }],
+            mode='payment',
+            success_url=settings.LOCAL_DOMAIN + '/success.html',
+            cancel_url= settings.LOCAL_DOMAIN + '/cancel.html',
+        )
+        if checkout_session:
+            Order.objects.create(user=request.user, total_price=Total, payment_id=checkout_session.id, payment_status= 'paid')
+    except Exception as e:
+        return str(e)
+
+    return redirect(checkout_session.url, code=303)
+
+
+
+def success(request):
+    return render(request, 'success')
+
+
+def cancel(request):
+    return render(request, 'cancel')

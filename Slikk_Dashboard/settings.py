@@ -17,6 +17,7 @@ from decouple import config
 
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+LOCAL_DOMAIN = config('LOCAL_DOMAIN')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'Site_Settings',
     'User_Profiles',
     'cart',
+    'Orders',
 ]
 
 MIDDLEWARE = [
